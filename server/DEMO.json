@@ -1,0 +1,127 @@
+{
+  "tables": [
+    {
+      "id": "5c51b50e93d46941a4da1fb8",
+      "name": "Todos",
+      "displayName": "Todos",
+      "isSystem": false,
+      "fields": [
+        {
+          "id": "5c51b50e93d4692c37da1fb9",
+          "name": "id",
+          "displayName": "ID",
+          "description": null,
+          "fieldType": "ID",
+          "fieldTypeAttributes": null,
+          "isList": false,
+          "isRequired": true,
+          "isUnique": true,
+          "defaultValue": null,
+          "isSystem": true,
+          "isMeta": true,
+          "relation": null
+        },
+        {
+          "id": "5c51b50e93d46974b0da1fba",
+          "name": "createdAt",
+          "displayName": "Created At",
+          "description": null,
+          "fieldType": "DATE",
+          "fieldTypeAttributes": {
+            "format": "DATETIME"
+          },
+          "isList": false,
+          "isRequired": false,
+          "isUnique": false,
+          "defaultValue": null,
+          "isSystem": true,
+          "isMeta": true,
+          "relation": null
+        },
+        {
+          "id": "5c51b50e93d4696067da1fbc",
+          "name": "updatedAt",
+          "displayName": "Updated At",
+          "description": null,
+          "fieldType": "DATE",
+          "fieldTypeAttributes": {
+            "format": "DATETIME"
+          },
+          "isList": false,
+          "isRequired": false,
+          "isUnique": false,
+          "defaultValue": null,
+          "isSystem": true,
+          "isMeta": true,
+          "relation": null
+        },
+        {
+          "id": "5c51b50e93d4692614da1fc0",
+          "name": "createdBy",
+          "displayName": "Created By",
+          "description": null,
+          "fieldType": "RELATION",
+          "fieldTypeAttributes": null,
+          "isList": false,
+          "isRequired": false,
+          "isUnique": false,
+          "defaultValue": null,
+          "isSystem": true,
+          "isMeta": true,
+          "relation": {
+            "refFieldName": null,
+            "refFieldDisplayName": null,
+            "relationTableName": "Users",
+            "relationFieldName": null,
+            "refTable": {
+              "id": "5c51b50793d4697adcda1d8c",
+              "name": "Users"
+            },
+            "refFieldIsList": null,
+            "refFieldIsRequired": null
+          }
+        },
+        {
+          "id": "5c51b51f93d46951b1da2180",
+          "name": "title",
+          "displayName": "title",
+          "description": null,
+          "fieldType": "TEXT",
+          "fieldTypeAttributes": {
+            "format": "UNFORMATTED",
+            "fieldSize": 255
+          },
+          "isList": false,
+          "isRequired": true,
+          "isUnique": false,
+          "defaultValue": null,
+          "isSystem": false,
+          "isMeta": false,
+          "relation": null
+        },
+        {
+          "id": "5c51b56b08c1251c56377898",
+          "name": "status",
+          "displayName": "status",
+          "description": null,
+          "fieldType": "SWITCH",
+          "fieldTypeAttributes": {
+            "format": "CUSTOM",
+            "listOptions": [
+              "To Do",
+              "Done"
+            ]
+          },
+          "isList": false,
+          "isRequired": true,
+          "isUnique": null,
+          "defaultValue": "To Do",
+          "isSystem": false,
+          "isMeta": false,
+          "relation": null
+        }
+      ]
+    }
+  ],
+  "version": "0.0.51"
+}
