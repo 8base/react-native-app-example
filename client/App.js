@@ -1,13 +1,19 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Button } from 'react-native';
-import { AuthContext, AuthProvider } from '@8base/auth';
+import {
+  StyleSheet,
+  SafeAreaView,
+  Button,
+  KeyboardAvoidingView,
+  ActivityIndicator,
+} from 'react-native';
+import { EightBaseAppProvider, AuthContext } from '@8base/app-provider';
 import { ReactNativeAuth0AuthClient } from '@8base/react-native-auth0-auth-client';
 
+import { LoginForm } from './components/LoginForm';
 import { TodosList } from './components/TodosList';
-import { ApolloContainer } from './ApolloContainer';
 
-const AUTH0_CLIENT_ID = 'lJDVb8s0468eDLucm9bxHGhoTm2DJPfA';
-const AUTH0_DOMAIN = 'https://8base-dev.auth0.com';
+const AUTH0_CLIENT_ID = 'qGHZVu5CxY5klivm28OPLjopvsYp0baD';
+const AUTH0_DOMAIN = 'https://auth.8base.com';
 
 const authClient = new ReactNativeAuth0AuthClient({
   clientId: AUTH0_CLIENT_ID,
@@ -17,36 +23,44 @@ const authClient = new ReactNativeAuth0AuthClient({
 export default class App extends React.Component {
   renderContent = auth => {
     if (!auth.isAuthorized) {
-      const login = async () => {
-        const authData = await auth.authorize();
-
-        await auth.setAuthState({
-          token: authData.idToken,
-          email: authData.email,
-        });
-      };
-
-      return <Button title="Login with Auth0" onPress={login} />;
+      return <LoginForm auth={auth} />;
     }
 
-    return <TodosList />;
+    return (
+      <React.Fragment>
+        <TodosList />
+        <Button title="Logout" onPress={auth.purgeAuthState} />
+      </React.Fragment>
+    );
   };
 
   render() {
     return (
-      <AuthProvider authClient={authClient}>
-        <ApolloContainer uri="https://api.8base.com/cjrjafsth000101qqwsw1w792">
-          <SafeAreaView style={styles.container}>
-            <AuthContext.Consumer>{this.renderContent}</AuthContext.Consumer>
-          </SafeAreaView>
-        </ApolloContainer>
-      </AuthProvider>
+      <EightBaseAppProvider
+        authClient={authClient}
+        uri="https://api.8base.com/cjrjafsth000101qqwsw1w792">
+        {({ loading }) => {
+          if (loading) {
+            return <ActivityIndicator />;
+          }
+
+          return (
+            <KeyboardAvoidingView style={styles.container} behavior="padding">
+              <SafeAreaView style={styles.container}>
+                <AuthContext.Consumer>{this.renderContent}</AuthContext.Consumer>
+              </SafeAreaView>
+            </KeyboardAvoidingView>
+          );
+        }}
+      </EightBaseAppProvider>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
+    display: 'flex',
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',

@@ -14,6 +14,7 @@
 * Go to the client directory `cd client`;
 * Install dependencies `npm install`;
 * Get 8base API endpoint for your account;
+* Replace `uri` in the `App.js` with your enpoint
 * Start app via `npm start`;
 * Open app via simulator or on the your phone;
 * Explore it.

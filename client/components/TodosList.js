@@ -22,8 +22,6 @@ class TodosList extends React.Component {
       return <ActivityIndicator size="large" color="#0000ff" />;
     }
 
-    console.log(this.props.data);
-
     return (
       <React.Fragment>
         <NewTodoForm />
