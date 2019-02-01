@@ -5,6 +5,7 @@ import {
   Button,
   KeyboardAvoidingView,
   ActivityIndicator,
+  Linking,
 } from 'react-native';
 import { EightBaseAppProvider, AuthContext } from '@8base/app-provider';
 import { ReactNativeAuth0AuthClient } from '@8base/react-native-auth0-auth-client';
@@ -12,8 +13,8 @@ import { ReactNativeAuth0AuthClient } from '@8base/react-native-auth0-auth-clien
 import { LoginForm } from './components/LoginForm';
 import { TodosList } from './components/TodosList';
 
-const AUTH0_CLIENT_ID = 'qGHZVu5CxY5klivm28OPLjopvsYp0baD';
-const AUTH0_DOMAIN = 'https://auth.8base.com';
+const AUTH0_CLIENT_ID = 'lJDVb8s0468eDLucm9bxHGhoTm2DJPfA';
+const AUTH0_DOMAIN = 'https://8base-dev.auth0.com';
 
 const authClient = new ReactNativeAuth0AuthClient({
   clientId: AUTH0_CLIENT_ID,

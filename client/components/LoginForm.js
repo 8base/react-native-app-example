@@ -16,24 +16,6 @@ const styles = StyleSheet.create({
     height: 59,
     marginBottom: 32,
   },
-  loginFormEmailInput: {
-    height: 64,
-    borderRadius: 4,
-    paddingRight: 16,
-    paddingLeft: 16,
-    width: '100%',
-    marginBottom: 16,
-    borderWidth: 1,
-  },
-  loginFormPasswordInput: {
-    height: 64,
-    borderRadius: 4,
-    paddingRight: 16,
-    paddingLeft: 16,
-    width: '100%',
-    marginBottom: 16,
-    borderWidth: 1,
-  },
   loginFormButton: {
     backgroundColor: '#FF5722',
     color: '#000',
@@ -41,90 +23,25 @@ const styles = StyleSheet.create({
 });
 
 class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
+  login = async () => {
+    const { auth } = this.props;
 
-    this.state = { email: null, password: null };
-  }
+    const authData = await auth.authorize();
 
-  onChangeEmail = email => {
-    this.setState({ email });
-  };
-
-  onChangePassword = password => {
-    this.setState({ password });
-  };
-
-  onLogin = async () => {
-    const { email, password } = this.state;
-
-    let err = null;
-
-    try {
-      const res = await this.props.login({
-        variables: {
-          data: { email, password },
-        },
-      });
-
-      await this.props.auth.setAuthState({
-        token: res.data.userLogin.auth.idToken,
-        email,
-      });
-    } catch (e) {
-      console.log(e);
-      err = e;
-    }
-
-    if (!err) {
-      Keyboard.dismiss();
-
-      this.reset();
-    }
-  };
-
-  reset = () => {
-    this.setState({ title: null });
+    await auth.setAuthState({
+      token: authData.idToken,
+      email: authData.email,
+    });
   };
 
   render() {
     return (
       <View style={styles.loginForm}>
         <Image style={styles.loginFormLogo} source={require('../assets/logo.png')} />
-        <TextInput
-          style={styles.loginFormEmailInput}
-          onChangeText={this.onChangeEmail}
-          value={this.state.email}
-          placeholder="Enter email"
-        />
-        <TextInput
-          style={styles.loginFormPasswordInput}
-          onChangeText={this.onChangePassword}
-          value={this.state.password}
-          placeholder="Enter password"
-          secureTextEntry
-        />
-        <Button title="Login" onPress={this.onLogin} primary />
+        <Button style={styles.loginFormButton} title="Login with Auth0" onPress={this.login} />
       </View>
     );
   }
 }
-
-const USER_LOGIN_QUERY = gql`
-  mutation Login($data: UserLoginInput!) {
-    userLogin(data: $data) {
-      auth {
-        idToken
-      }
-      workspaces {
-        workspace
-      }
-    }
-  }
-`;
-
-LoginForm = graphql(USER_LOGIN_QUERY, {
-  name: 'login',
-})(LoginForm);
 
 export { LoginForm };
