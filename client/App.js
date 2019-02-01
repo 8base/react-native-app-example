@@ -5,6 +5,7 @@ import {
   Button,
   KeyboardAvoidingView,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { EightBaseAppProvider, AuthContext } from '@8base/app-provider';
 import { ReactNativeAuth0AuthClient } from '@8base/react-native-auth0-auth-client';
@@ -20,6 +21,8 @@ const authClient = new ReactNativeAuth0AuthClient({
   domain: AUTH0_DOMAIN,
 });
 
+const stringifySourceLocation = (sourceLocation = {}) => `line: ${sourceLocation.line}, column: ${sourceLocation.column}`;
+
 export default class App extends React.Component {
   renderContent = auth => {
     if (!auth.isAuthorized) {
@@ -34,11 +37,33 @@ export default class App extends React.Component {
     );
   };
 
+  handleRequestError = ({ graphQLErrors, networkError }) => {
+    if (graphQLErrors)
+      graphQLErrors.map(({ message = '', locations = [], path = '' }) => {
+        Alert.alert(
+          'GraphQL error',
+          `Message: ${message}
+Location: ${locations.map(stringifySourceLocation)}
+Path: ${path}
+`,
+        );
+      });
+
+    if (networkError) {
+      Alert.alert(
+        'Network error',
+        `[Network error]: ${networkError}`,
+      );
+    }
+  };
+
   render() {
     return (
       <EightBaseAppProvider
         authClient={authClient}
-        uri="https://api.8base.com/cjrjafsth000101qqwsw1w792">
+        uri="https://api.8base.com/cjrjafsth000101qqwsw1w792"
+        onRequestError={this.handleRequestError}
+      >
         {({ loading }) => {
           if (loading) {
             return <ActivityIndicator />;
