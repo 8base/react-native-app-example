@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@8base/apollo-client@^0.10.5":
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/@8base/apollo-client/-/apollo-client-0.10.5.tgz#a8756b066a289e9d909f535c0359cc1d32ced16a"
-  integrity sha512-O7JR4IWRiKm25B7sbZgZtXAHCZFCaKTOu/C3iu0oRyApSgFzm6AXhW74G6OKnYBO1STtc35NICQJImH/TuRTnA==
+"@8base/apollo-client@^0.11.3":
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/@8base/apollo-client/-/apollo-client-0.11.3.tgz#f0f3cae1f7373ff7e9133158f2ca734d8655e6a7"
+  integrity sha512-hnRagFH1j1cqg8d4Fhs4knkOOGvWgiyEXRGnOUuRbq738m5AzOZfl9I/f2st8iIcewJhKnVZNsVi/5gl335dIQ==
   dependencies:
-    "@8base/apollo-links" "^0.10.5"
+    "@8base/apollo-links" "^0.11.3"
     "@babel/runtime" "^7.2.0"
     apollo-cache-inmemory "^1.2.10"
     apollo-client "^2.4.2"
@@ -17,13 +17,13 @@
     graphql "0.13.0"
     graphql-tag "^2.10.0"
 
-"@8base/apollo-links@^0.10.5":
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/@8base/apollo-links/-/apollo-links-0.10.5.tgz#04cc01ed9fcb687d9799ef4aa1107b8647d63578"
-  integrity sha512-N6MZbWu4oFPNy+en3t1guMPU4MN8gq4VCIR2+sm1ZBr78a72Vnx2338Csxqp4dEJ9nLluxaBP1gmj/tD3QbeBA==
+"@8base/apollo-links@^0.11.3":
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/@8base/apollo-links/-/apollo-links-0.11.3.tgz#4529ddf4845d212cad0a72d2637b9bfd544f8361"
+  integrity sha512-VIvRjm7Lw46dfLE7moCTmA1vl2rYCyKzWkAXNrNQQ0L3h3qxUM0aLFDjEgcnkzvpDUmHPGCs8qGlO9Z2r0RQ+w==
   dependencies:
     "@8base/error-codes" "^1.0.5"
-    "@8base/utils" "^0.10.5"
+    "@8base/utils" "^0.11.3"
     "@babel/runtime" "^7.2.0"
     apollo-link "1.2.1"
     apollo-link-error "^1.1.0"
@@ -31,16 +31,16 @@
     graphql-tag "^2.9.2"
     ramda "^0.25.0"
 
-"@8base/app-provider@^0.10.5":
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/@8base/app-provider/-/app-provider-0.10.5.tgz#83e1ec5303d3bdea1361c173a9cc36f53f098b51"
-  integrity sha512-1XkVGcJvcVlRtOtr2QeZDnZEQ4hcbCFEyzSvEXe88dK42XMT8nUJdhKucVfUyR2If2vRtTdfhQABBZHCj5uncA==
+"@8base/app-provider@^0.11.0":
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/@8base/app-provider/-/app-provider-0.11.3.tgz#8e6a9b4956e7f829786e5bb8aa5ef4678207bdc5"
+  integrity sha512-5luUuK0ZUi70pLudXW3QMJO1HNid61f8xpteTCged67ZC3ldr7NjqUCsTqEjd49TZQ4zXzE/Z5YO1K8IJteYgw==
   dependencies:
-    "@8base/apollo-client" "^0.10.5"
-    "@8base/apollo-links" "^0.10.5"
-    "@8base/auth" "^0.10.5"
+    "@8base/apollo-client" "^0.11.3"
+    "@8base/apollo-links" "^0.11.3"
+    "@8base/auth" "^0.11.3"
     "@8base/error-codes" "^1.0.5"
-    "@8base/table-schema-provider" "^0.10.5"
+    "@8base/table-schema-provider" "^0.11.3"
     "@babel/runtime" "^7.2.0"
     apollo-cache-inmemory "^1.3.5"
     apollo-client "^2.4.2"
@@ -54,12 +54,12 @@
     react-dom "^16.4.2"
     recompose "0.27.1"
 
-"@8base/auth@^0.10.5":
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/@8base/auth/-/auth-0.10.5.tgz#96611ba6c7adfb233755b9c535f9b8f3dc0e2eb1"
-  integrity sha512-POoqOl8i+aSa2eA13ZOk8Xnk2GPuKq6U0jPOP7yOw8svBSv/UCIhkACy4lDxcaXH0d4ze5EiBe05K8jzT/hTtg==
+"@8base/auth@^0.11.3":
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/@8base/auth/-/auth-0.11.3.tgz#65c67605480a9cf5920ed47560a383ad0a85e5d2"
+  integrity sha512-1pypLkIEo1MEYWuSwntGKa7ElVhlsRrG9D3E5iMmj+fBMIfil6gI6iRWnH/q00q7L3AWvVwRKZtAbokZoiRAmA==
   dependencies:
-    "@8base/utils" "^0.10.5"
+    "@8base/utils" "^0.11.3"
     "@babel/runtime" "^7.2.0"
     apollo-client "^2.4.12"
     react-apollo "^2.1.11"
@@ -80,13 +80,12 @@
     jwt-decode "^2.2.0"
     ramda "^0.26.1"
 
-"@8base/table-schema-provider@^0.10.5":
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/@8base/table-schema-provider/-/table-schema-provider-0.10.5.tgz#fb590ce18b1b61dbbe25fbe8710a582c16ff7e9e"
-  integrity sha512-Rbtcfok1WJWNiIG5TPhDKVpH2FkjKZ0C270AD/+FVIP7aSZVuBa7dwL1ikP4/6d3edFe9MtDxjtCTxoD+hBNpg==
+"@8base/table-schema-provider@^0.11.3":
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/@8base/table-schema-provider/-/table-schema-provider-0.11.3.tgz#031b52afcc14faeae6d70e69ade3169b6542e777"
+  integrity sha512-SnSdjILqqyzUBtODE/PV3FDPiVmaxAFS7sdq61C6NP5dnKsYcipkD17DBzPdoh5EPXRX7+uhzezyftylIo9yUQ==
   dependencies:
-    "@8base/auth" "^0.10.5"
-    "@8base/utils" "^0.10.5"
+    "@8base/utils" "^0.11.3"
     "@babel/runtime" "^7.3.1"
     apollo-client "^2.4.1"
     graphql "^14.1.1"
@@ -101,6 +100,14 @@
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/@8base/utils/-/utils-0.10.5.tgz#794538197d109d70b93c5821edb7d9b4f7256cd2"
   integrity sha512-9zSKy74kQspvHGFJmxDTlBtIfv530hgVFP+ivVoYy4XGKSDgVirwk3mN04IK8TKvFNDLeyN5ZrxdSvJ9BQKw+g==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    ramda "^0.25.0"
+
+"@8base/utils@^0.11.3":
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/@8base/utils/-/utils-0.11.3.tgz#89b8ed6f94ef81fb9bdf6a050a4280e0bac1af35"
+  integrity sha512-7wGJfi1eqUT34LUTOpDORhwsOQUwkHz2A7qnlyokEJ5aMUgn3KnXGImqna4Yn9/8ZtjSHt41WNqxNvwtpMnEqA==
   dependencies:
     "@babel/runtime" "^7.3.1"
     ramda "^0.25.0"
@@ -5260,6 +5267,11 @@ ramda@^0.26.1:
   version "0.26.1"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
   integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
+
+ramda@^0.27.2:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.2.tgz#84463226f7f36dc33592f6f4ed6374c48306c3f1"
+  integrity sha512-SbiLPU40JuJniHexQSAgad32hfwd+DRUdwF2PlVuI5RZD0/vahUco7R8vD86J/tcEKKF9vZrUVwgtmGCqlCKyA==
 
 randomatic@^3.0.0:
   version "3.1.1"

@@ -8,12 +8,12 @@
     "eslint": "eslint App.js ApolloContainer.js FragmentsSchemaContainer.js components"
   },
   "dependencies": {
-    "@8base/app-provider": "^0.10.5",
+    "@8base/app-provider": "^0.11.0",
     "@8base/react-native-auth0-auth-client": "^0.10.5",
     "expo": "^32.0.0",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
-    "ramda": "^0.26.1",
+    "ramda": "^0.27.2",
     "react": "16.5.0",
     "react-apollo": "^2.4.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
